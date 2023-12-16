@@ -1,0 +1,37 @@
+{% extends 'baseTr.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+<div class="alert alert-secondary" role="alert">
+        <h1 align="center">Deprem Bilgisi</h1>
+              {% csrf_token %}
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Afet Numarası</th>
+                            <th scope="col">Afet İsmi</th>
+                            <th scope="col">Afet Bilgisi</th>
+                            <th scope="col">Tarih</th>
+                            <th scope="col">Ekleyen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-6 col-xs-1">
+                                <tr>
+                                    <td data-label="Afet Numarası"><h3>{{ project.id }}</h3></td>
+                                    <td data-label="Afet İsmi"><h3>{{ project.projectName }}</h3></td>
+                                    <td data-label="Afet Bilgisi"><h3>{{ project.summary}}</h3></td>
+                                    <td data-label="Tarih"><h3>{{ project.crtDate}}</h3></td>
+                                    <td data-label="Ekleyen"><h3>{{ project.user.groups.all.0.name }}</h3></td>
+                                </tr>
+                            </div>
+                        </div>
+                    </tbody>
+                </table>
+</div>
+{% endblock %}
+
+
+
+
+

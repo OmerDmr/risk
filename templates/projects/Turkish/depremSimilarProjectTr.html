@@ -1,0 +1,36 @@
+{% extends 'baseTr.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+    <div class="alert alert-secondary" role="alert">
+        <h1>Benzer Depremler</h1>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Afet Numarası</th>
+                            <th scope="col">Afet İsmi</th>
+                            <th scope="col">Afet Bilgisi</th>
+                            <th scope="col">Eklenme Tarih</th>
+                            <th scope="col">Ekleyen</th>
+                            <th scope="col">Benzerlik Oranı</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for prj in simProjects %}
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6 col-xs-1">
+                                    <tr>
+                                    <td data-label="Afet Numarası"><h3>{{ prj.0 }}</h3></td>
+                                    <td data-label="Afet İsmi"><h3>{{ prj.1 }}</h3></td>
+                                    <td data-label="Afet Bilgisi"><h3>{{ prj.2|linebreaks|truncatechars:150}}</h3></td>
+                                    <td data-label="Eklenme Tarih"><h3>{{ prj.3}}</h3></td>
+                                    <td data-label="Ekleyen"><h3>{{ prj.4}}</h3></td>
+                                        <td data-label="Benzerlik Oranı"><h3>{{ prj.5}}</h3></td>
+                                </tr>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            <td><h3><a href="{% url 'projects:depremViewTr' project.id %}" class="btn btn-primary" role="button">Reaksiyonları İncele</a></h3></td>
+    </div>
+{% endblock %}

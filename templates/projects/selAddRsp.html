@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    {{ block.super }}-Update
+{% endblock %}
+
+{% block body %}
+    <div class="alert alert-secondary" role="alert">
+
+    <h1>Add New Response</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy}}
+        {% if user.groups.all.0.name == 'Disaster Manager' or user.groups.all.0.name == 'Disaster Specialist'  %}
+            <input class="btn btn-primary" type="submit" value="Add Response">
+        {% endif %}
+        <td><h3><a href="{{ project.get_update_url }}" class="btn btn-default" role="button">Cancel</a></h3></td>
+    </form>
+    </div>
+{% endblock %}

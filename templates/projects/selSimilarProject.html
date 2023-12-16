@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+    <div class="alert alert-secondary" role="alert">
+        <h1>Similar Floods</h1>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Disaster ID</th>
+                            <th scope="col">Disaster Name</th>
+                            <th scope="col">Disaster Summary</th>
+                            <th scope="col">Creating Date</th>
+                            <th scope="col">Created By</th>
+                            <th scope="col">Similarity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for prj in simProjects %}
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6 col-xs-1">
+                                    <tr>
+                                        <td data-label="Disaster ID"><h3>{{prj.0}}</h3></td>
+                                        <td data-label="Disaster Name"><h3>{{prj.1}}</h3></td>
+                                        <td data-label="Disaster Summary"><p>{{ prj.2|linebreaks|truncatechars:150 }}</p></td>
+                                        <td data-label="Creating Date"><h4>{{ prj.3 }}</h4></td>
+                                        <td data-label="Created By"><h4>{{ prj.4 }}</h4></td>
+                                        <td data-label="Similarity"><h4>{{ prj.5 }}</h4></td>
+                                    </tr>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            <td><h3><a href="{% url 'projects:selView' project.id %}" class="btn btn-primary" role="button">View the Responses</a></h3></td>
+    </div>
+{% endblock %}

@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+<div class="alert alert-secondary" role="alert">
+        <h1 align="center">Disaster Information</h1>
+              {% csrf_token %}
+            <div class="row">
+                <div class="col-md-10">
+                    <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Disaster Id </th>
+                            <th scope="col">Disaster Name</th>
+                            <th scope="col">Summary</th>
+                            <th scope="col">Disaster Date</th>
+                            <th scope="col">Created By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-6 col-xs-1">
+                                <tr>
+                                    <td data-label="Disaster ID"><h3>{{ project.id }}</h3></td>
+                                    <td data-label="Disaster Name"><h3>{{ project.projectName }}</h3></td>
+                                    <td data-label="Summary"><h3>{{ project.summary|linebreaks|truncatechars:20 }}</h3></td>
+                                    <td data-label="Disaster Date"><h3>{{ project.crtDate}}</h3></td>
+                                    <td data-label="Created By"><h3>{{ project.user.groups.all.0.name }}</h3></td>
+                                </tr>
+                            </div>
+                        </div>
+                    </tbody>
+                </table>
+                </div>
+                <div class="col-md-2">
+                    <td><h3><a href="{{ project.get_Infupdate_url }}" class="btn btn-primary" role="button">Update Information</a></h3></td>
+                </div>
+            </div>
+    <br><br>
+        <h1 align="center">Disaster Features</h1>
+            <div class="row">
+                <div class="col-md-10">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Maximum Precipitation Intensity (mm/hour)</th>
+                                <th scope="col">Single Precipitation Period (hour)</th>
+                                <th scope="col">Average Precipitation (mm)</th>
+                                <th scope="col">Maximum Water Depth (cm)</th>
+                                <th scope="col">Condition of Road Transportation Lines</th>
+                                <th scope="col">Damage Area (km2)</th>
+                                <th scope="col">Rescue Worker (person)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6 col-xs-1">
+                                    <tr>
+                                        <td data-label="Maximum Precipitation Intensity (mm/hour)"><h3>{{ project.MaximumPrecipitationIntensity }}</h3></td>
+                                        <td data-label="Single Precipitation Period (hour)"><h3>{{ project.SinglePrecipitationPeriod }}</h3></td>
+                                        <td data-label="Average Precipitation (mm)"><h3>{{ project.AveragePrecipitation }}</h3></td>
+                                        <td data-label="Maximum Water Depth (cm)"><h3>{{ project.MaximumWaterDepth}}</h3></td>
+                                        <td data-label="Condition of Road Transportation Lines"><h3>{{ project.getCondRoadTransp }}</h3></td>
+                                        <td data-label="Damage Area (km2)"><h3>{{ project.DamageArea}}</h3></td>
+                                        <td data-label="Rescue Worker (person)"><h3>{{ project.RescueWorker}}</h3></td>
+                                    </tr>
+                                </div>
+                            </div>
+                        </tbody>
+                    </table>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Emergency Resource Arrival Duration (min)</th>
+                                <th scope="col">Emergency Resource Completeness and Readiness Level</th>
+                                <th scope="col">Altitude of the Region (m)</th>
+                                <th scope="col">Slope of the Region</th>
+                                <th scope="col">Building Density and Accessibility of the Disaster Area</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6 col-xs-1">
+                                    <tr>
+                                        <td data-label="Emergency Resource Arrival Duration (min)"><h3>{{ project.EmergencyResourceDuration }}</h3></td>
+                                        <td data-label="Emergency Resource Completeness and Readiness Level"><h3>{{ project.getEmrgResComRead }}</h3></td>
+                                        <td data-label="Altitude of the Region (m)"><h3>{{ project.AltitudeRegion }}</h3></td>
+                                        <td data-label="Slope of the Region"><h3>{{ project.SlopeRegion}}</h3></td>
+                                        <td data-label="Building Density and Accessibility of the Disaster Area"><h3>{{ project.getBuildDensity }}</h3></td>
+                                    </tr>
+                                </div>
+                            </div>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-2">
+                    <td><h3><a href="{{ project.get_Featureupdate_url}}" class="btn btn-primary" role="button">Update Features</a></h3></td>
+                </div>
+            </div>
+
+
+            <br><br>
+            <h1 align="center">Responses</h1>
+                <div class="row">
+                    <div class="col-md-10">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Response ID</th>
+                                    <th scope="col">Response </th>
+                                    <th scope="col">Response Date</th>
+                                    <th scope="col">Response Time</th>
+                                    <th scope="col">Response Effect</th>
+                                    <th scope="col">Responsible</th>
+                                    <th scope="col">Update Response</th>
+                                    <th scope="col">Delete Response</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for response in responses %}
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-6 col-xs-1">
+                                            <tr>
+                                                <td data-label="Response ID"><h3>{{response.id}}</h3></td>
+                                                <td data-label="Response"><h3>{{response.reaction|linebreaks|truncatechars:20}}</h3></td>
+                                                <td data-label="Response Date"><h3>{{response.date }}</h3></td>
+                                                <td data-label="Response Time"><h3>{{ response.time }}</h3></td>
+                                                <td data-label="Response Effect"><h3>{{ response.effect}}</h3></td>
+                                                <td data-label="Responsible"><h3>{{ response.responsible }}</h3></td>
+                                                <td data-label="Update Response"><h3><a href="{%url 'projects:newResponseSel' project.id response.id%}" class="btn btn-primary" role="button">Update</a></h3></td>
+                                                <td data-label="Delete Response"><h3><a href="{%url 'projects:deleteResponseSel' project.id response.id%}" class="btn btn-danger" role="button">Delete</a></h3></td>
+                                            </tr>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-2">
+                        <td><h3><a href="{%url 'projects:addResponseSel' project.id%}" class="btn btn-primary" role="button">Add a New Response</a></h3></td>
+                    </div>
+                </div>
+
+</div>
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+<div class="alert alert-secondary" role="alert">
+        <h1 align="center">Response Information</h1>
+              {% csrf_token %}
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Response ID</th>
+                            <th scope="col">Response </th>
+                            <th scope="col">Response Date</th>
+                            <th scope="col">Response Time</th>
+                            <th scope="col">Response Effect</th>
+                            <th scope="col">Responsible</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6 col-xs-1">
+                                    <tr>
+                                        <td data-label="Response ID"><h3>{{response.id}}</h3></td>
+                                        <td data-label="Response"><h3>{{response.reaction}}</h3></td>
+                                        <td data-label="Response Date"><h3>{{response.date }}</h3></td>
+                                        <td data-label="Response Time"><h3>{{ response.time }}</h3></td>
+                                        <td data-label="Response Effect"><h3>{{ response.effect}}</h3></td>
+                                        <td data-label="Responsible"><h3>{{ response.responsible }}</h3></td>
+                                    </tr>
+                                </div>
+                            </div>
+                    </tbody>
+                </table>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+<div class="alert alert-secondary" role="alert">
+        <h1 align="center">Disaster Information</h1>
+              {% csrf_token %}
+
+                    <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Disaster Id </th>
+                            <th scope="col">Disaster Name</th>
+                            <th scope="col">Summary</th>
+                            <th scope="col">Disaster Date</th>
+                            <th scope="col">Created by</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-6 col-xs-1">
+                                <tr>
+                                    <td data-label="Disaster ID"><h3>{{ project.id }}</h3></td>
+                                    <td data-label="Disaster Name"><h3>{{ project.projectName }}</h3></td>
+                                    <td data-label="Summary"><h3>{{ project.summary|linebreaks|truncatechars:20}}</h3></td>
+                                    <td data-label="Disaster Date"><h3>{{ project.crtDate}}</h3></td>
+                                    <td data-label="Created By"><h3>{{ project.user.groups.all.0.name }}</h3></td>
+                                </tr>
+                            </div>
+                        </div>
+                    </tbody>
+                </table>
+    <td><h3 align="center"><a href="{%url 'projects:depremInfView' project.id%}" class="btn btn-primary" role="button">View Disaster Information</a></h3></td>
+
+    <br><br>
+        <h1 align="center">Disaster Features</h1>
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Magnitude of the Earthquake</th>
+                                <th scope="col">Emergency Time</th>
+                                <th scope="col">Focal Depth (km)</th>
+                                <th scope="col">Emergency Location</th>
+                                <th scope="col">Weather Condition</th>
+                                <th scope="col">Building Collapse Rate (%)</th>
+                                <th scope="col">Potential of Secondary Disasters</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6 col-xs-1">
+                                    <tr>
+                                        <td data-label="Magnitude of the Earthquake"><h3>{{ project.MagnitudeEarthquake }}</h3></td>
+                                        <td data-label="Emergency Time"><h3>{{ project.getEmrTime }}</h3></td>
+                                        <td data-label="Focal Depth (km)"><h3>{{ project.FocalDepth }}</h3></td>
+                                        <td data-label="Emergency Location"><h3>{{ project.EmergencyLocation}}</h3></td>
+                                        <td data-label="Weather Condition"><h3>{{ project.getWeatherCond }}</h3></td>
+                                        <td data-label="Building Collapse Rate (%)"><h3>{{ project.BuildingCollapseRate}}</h3></td>
+                                        <td data-label="Potential of Secondary Disasters"><h3>{{ project.getPotSecDis}}</h3></td>
+                                    </tr>
+                                </div>
+                            </div>
+                        </tbody>
+                    </table>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Population Density (n/km2)</th>
+                                <th scope="col">Building Density and Accessibility of the Disaster Area</th>
+                                <th scope="col">Potential of Hazardous Material Arising from Debris</th>
+                                <th scope="col">Emergency Resource Completeness and Readiness Level</th>
+                                <th scope="col">Emergency Resource Arrival Duration</th>
+                                <th scope="col">Initial Response Level of Local Units</th>
+                                <th scope="col">Condition of Road Transportation Lines</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6 col-xs-1">
+                                    <tr>
+                                        <td data-label="Population Density (n/km2)"><h3>{{ project.PopulationDensity }}</h3></td>
+                                        <td data-label="Building Density and Accessibility of the Disaster Area"><h3>{{ project.getBuildDensity }}</h3></td>
+                                        <td data-label="Potential of Hazardous Material Arising from Debris"><h3>{{ project.getPotHazard }}</h3></td>
+                                        <td data-label="Emergency Resource Completeness and Readiness Level"><h3>{{ project.getEmrResComp}}</h3></td>
+                                        <td data-label="Emergency Resource Arrival Duration"><h3>{{ project.getEmrResDur }}</h3></td>
+                                        <td data-label="Initial Response Level of Local Units"><h3>{{ project.getInitResponce}}</h3></td>
+                                        <td data-label="Condition of Road Transportation Lines"><h3>{{ project.getCondRoad}}</h3></td>
+                                    </tr>
+                                </div>
+                            </div>
+                        </tbody>
+                    </table>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Condition of Air Transportation Lines</th>
+                                <th scope="col">Condition of Railway Transportation Lines</th>
+                                <th scope="col">Condition of Maritime Transportation Lines</th>
+                                <th scope="col">Condition of Health Infrastructure</th>
+                                <th scope="col">Condition of Water Supply and Sewage Systems</th>
+                                <th scope="col">Condition of Communication Infrastructure</th>
+                                <th scope="col">Condition of the Natural Gas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6 col-xs-1">
+                                    <tr>
+                                        <td data-label="Condition of Air Transportation Lines"><h3>{{ project.getCondAir }}</h3></td>
+                                        <td data-label="Condition of Railway Transportation Lines"><h3>{{ project.getCondRailway }}</h3></td>
+                                        <td data-label="Condition of Maritime Transportation Lines"><h3>{{ project.getCondMari }}</h3></td>
+                                        <td data-label="Condition of Health Infrastructure"><h3>{{ project.getCondHealth}}</h3></td>
+                                        <td data-label="Condition of Water Supply and Sewage Systems"><h3>{{ project.getCondWaterSupp }}</h3></td>
+                                        <td data-label="Condition of Communication Infrastructure"><h3>{{ project.getCondComm}}</h3></td>
+                                        <td data-label="Condition of the Natural Gas"><h3>{{ project.getCondNatGas}}</h3></td>
+                                    </tr>
+                                </div>
+                            </div>
+                        </tbody>
+                    </table>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Condition of the Power Grid</th>
+                                <th scope="col">Sufficiency of Temporary Residential Area</th>
+                                <th scope="col">Capacity and Distance of Waste Landfills</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6 col-xs-1">
+                                    <tr>
+                                        <td data-label="Condition of the Power Grid"><h3>{{ project.getCondPowerGrid }}</h3></td>
+                                        <td data-label="Sufficiency of Temporary Residential Area"><h3>{{ project.getSufficiency }}</h3></td>
+                                        <td data-label="Capacity and Distance of Waste Landfills"><h3>{{ project.getCapacityWasteLand }}</h3></td>
+                                    </tr>
+                                </div>
+                            </div>
+                        </tbody>
+                    </table>
+
+            <br><br>
+            <h1 align="center">Responses</h1>
+
+                    <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Response ID</th>
+                            <th scope="col">Response </th>
+                            <th scope="col">Response Date</th>
+                            <th scope="col">Response Time</th>
+                            <th scope="col">Response Effect</th>
+                            <th scope="col">Responsible</th>
+                            <th scope="col">View</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for response in responses %}
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6 col-xs-1">
+                                    <tr>
+                                        <td data-label="Response ID"><h3>{{response.id}}</h3></td>
+                                        <td data-label="Response"><h3>{{response.reaction|linebreaks|truncatechars:20}}</h3></td>
+                                        <td data-label="Response Date"><h3>{{response.date }}</h3></td>
+                                        <td data-label="Response Time"><h3>{{ response.time }}</h3></td>
+                                        <td data-label="Response Effect"><h3>{{ response.effect}}</h3></td>
+                                        <td data-label="Responsible"><h3>{{ response.responsible }}</h3></td>
+                                        <td data-label="View"><h3 align="center"><a href="{%url 'projects:viewResponseDpr' project.id response.id%}" class="btn btn-primary" role="button">View</a></h3></td>
+                                    </tr>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+
+</div>
+{% endblock %}
+
+
+
+
+

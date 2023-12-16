@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+
+    <form method="POST">
+        <div class="alert alert-danger" role="alert">
+            <div class="col-md-offset-4 col-sm-offset-2 col-xs-offset-1">
+                {% csrf_token %}
+                <h1>Permission Denied !!</h1>
+                <h2>You are not authorized to do this operation!!</h2>
+                <h3>-Your authorization is:<h2>{{user.groups.first}}</h2></h3>
+                <h3>-For more detail about permissions please enter the 'About CBRisk'</h3>
+                <td><h3><a href="{%url 'projects:about' %}" class="btn btn-primary" role="button">About CBRisk</a></h3></td>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}

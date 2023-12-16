@@ -1,0 +1,18 @@
+{% extends 'baseTr.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+
+    <form method="POST">
+        <div class="alert alert-danger" role="alert">
+            <div class="col-md-offset-4 col-sm-offset-2 col-xs-offset-1">
+                {% csrf_token %}
+                <h1>Kullanıcı Yetkisi Reddedildi !!</h1>
+                <h2>Bu işlemi yapmaya yetkili değilsiniz!!</h2>
+                <h3>-Yetki seviyeniz :<h2>{{user.groups.first}}</h2></h3>
+                <h3>-Daha fazla bilgi için 'Hakkımızda'</h3>
+                <td><h3><a href="{%url 'projects:aboutTr' %}" class="btn btn-primary" role="button">Hakkımızda</a></h3></td>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}

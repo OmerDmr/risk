@@ -1,0 +1,203 @@
+{% extends 'baseTr.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+<div class="alert alert-secondary" role="alert">
+        <h1 align="center">Afet Bilgisi</h1>
+              {% csrf_token %}
+            <div class="row">
+                <div class="col-md-10">
+                    <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Afet Numarası</th>
+                            <th scope="col">Afet İsmi</th>
+                            <th scope="col">Afet Bilgisi</th>
+                            <th scope="col">Eklenme Tarih</th>
+                            <th scope="col">Ekleyen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-6 col-xs-1">
+                                <tr>
+                                    <td data-label="Afet Numarası"><h3>{{ project.id }}</h3></td>
+                                    <td data-label="Afet İsmi"><h3>{{ project.projectName }}</h3></td>
+                                    <td data-label="Afet Bilgisi"><h3>{{ project.summary|linebreaks|truncatechars:20}}</h3></td>
+                                    <td data-label="Eklenme Tarih"><h3>{{ project.crtDate}}</h3></td>
+                                    <td data-label="Ekleyen"><h3>{{ project.user.groups.all.0.name }}</h3></td>
+                                </tr>
+                            </div>
+                        </div>
+                    </tbody>
+                </table>
+                </div>
+                <div class="col-md-2">
+                    <td><h3><a href="{{ project.get_Infupdate_urlTr }}" class="btn btn-primary" role="button">Afet Bilgisi Güncelle</a></h3></td>
+                </div>
+            </div>
+
+    <br><br>
+        <h1 align="center">Afet Özellikleri</h1>
+            <div class="row">
+                <div class="col-md-10">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Depremin Büyüklüğü</th>
+                                <th scope="col">Depremin Zamanı</th>
+                                <th scope="col">Odak Derinliği (km)</th>
+                                <th scope="col">Afet Bölgesinin Konumu</th>
+                                <th scope="col">Afet Anı İklim Koşulları</th>
+                                <th scope="col">Yıkılan Bina Oranı (%)</th>
+                                <th scope="col">İkincil Afetlerin Oluşma Olasılığı</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6 col-xs-1">
+                                    <tr>
+                                        <td data-label="Depremin Büyüklüğü"><h3>{{ project.MagnitudeEarthquake }}</h3></td>
+                                        <td data-label="Depremin Zamanı"><h3>{{ project.getEmrTimeTr }}</h3></td>
+                                        <td data-label="Odak Derinliği (km)"><h3>{{ project.FocalDepth }}</h3></td>
+                                        <td data-label="Afet Bölgesinin Konumu"><h3>{{ project.getEmrLocTr}}</h3></td>
+                                        <td data-label="Afet Anı İklim Koşulları"><h3>{{ project.getWeatherCondTr }}</h3></td>
+                                        <td data-label="Yıkılan Bina Oranı (%)"><h3>{{ project.BuildingCollapseRate}}</h3></td>
+                                        <td data-label="İkincil Afetlerin Oluşma Olasılığı"><h3>{{ project.getPotSecDisTr}}</h3></td>
+                                    </tr>
+                                </div>
+                            </div>
+                        </tbody>
+                    </table>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nüfus Yoğunluğu (kişi/km2)</th>
+                                <th scope="col">Afet Bölgesinin Erişilebilirliği</th>
+                                <th scope="col">Tehlikeli Madde Açığa Çıkma Potensiyeli</th>
+                                <th scope="col">Acil Durum Kaynak Yeterliliği ve Hazırlık Seviyesi</th>
+                                <th scope="col">Kaynakların Tahmini Varış Süresi</th>
+                                <th scope="col">Yerel Birimlerin İlk Müdahale Seviyesi</th>
+                                <th scope="col">Kara Yolu Ulaşım Hatlarının Durumu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6 col-xs-1">
+                                    <tr>
+                                        <td data-label="Nüfus Yoğunluğu (kişi/km2)"><h3>{{ project.PopulationDensity }}</h3></td>
+                                        <td data-label="Afet Bölgesinin Erişilebilirliği"><h3>{{ project.getBuildDensityTr }}</h3></td>
+                                        <td data-label="Tehlikeli Madde Açığa Çıkma Potensiyeli"><h3>{{ project.getPotHazardTr }}</h3></td>
+                                        <td data-label="Acil Durum Kaynak Yeterliliği ve Hazırlık Seviyesi"><h3>{{ project.getEmrResCompTr}}</h3></td>
+                                        <td data-label="Kaynakların Tahmini Varış Süresi"><h3>{{ project.getEmrResDurTr }}</h3></td>
+                                        <td data-label="Yerel Birimlerin İlk Müdahale Seviyesi"><h3>{{ project.getInitResponceTr}}</h3></td>
+                                        <td data-label="Kara Yolu Ulaşım Hatlarının Durumu"><h3>{{ project.getCondRoadTr}}</h3></td>
+                                    </tr>
+                                </div>
+                            </div>
+                        </tbody>
+                    </table>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Hava Yolu Ulaşım Hatlarının Durumu</th>
+                                <th scope="col">Demir Yolu Ulaşım Hatlarının Durumu</th>
+                                <th scope="col">Deniz Yolu Ulaşım Hatlarının Durumu</th>
+                                <th scope="col">Sağlık Altyapısının Durumu</th>
+                                <th scope="col">Su ve Kanalizasyon Altyapısının Durumu</th>
+                                <th scope="col">İletişim Altyapısının Durumu</th>
+                                <th scope="col">Doğalgaz Altyapısının Durumu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6 col-xs-1">
+                                    <tr>
+                                        <td data-label="Hava Yolu Ulaşım Hatlarının Durumu"><h3>{{ project.getCondAirTr }}</h3></td>
+                                        <td data-label="Demir Yolu Ulaşım Hatlarının Durumu"><h3>{{ project.getCondRailwayTr }}</h3></td>
+                                        <td data-label="Deniz Yolu Ulaşım Hatlarının Durumu"><h3>{{ project.getCondMariTr }}</h3></td>
+                                        <td data-label="Sağlık Altyapısının Durumu"><h3>{{ project.getCondHealthTr}}</h3></td>
+                                        <td data-label="Su ve Kanalizasyon Altyapısının Durumu"><h3>{{ project.getCondWaterSuppTr }}</h3></td>
+                                        <td data-label="İletişim Altyapısının Durumu"><h3>{{ project.getCondCommTr}}</h3></td>
+                                        <td data-label="Doğalgaz Altyapısının Durumu"><h3>{{ project.getCondNatGasTr}}</h3></td>
+                                    </tr>
+                                </div>
+                            </div>
+                        </tbody>
+                    </table>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Enerji Altyapısının Durumu</th>
+                                <th scope="col">Geçici Konut Alanlarının Yeterliliği</th>
+                                <th scope="col">Atık Depolama Alanlarının Yeterliliği ve Mesafesi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6 col-xs-1">
+                                    <tr>
+                                        <td data-label="Enerji Altyapısının Durumu"><h3>{{ project.getCondPowerGridTr }}</h3></td>
+                                        <td data-label="Geçici Konut Alanlarının Yeterliliği"><h3>{{ project.getSufficiencyTr }}</h3></td>
+                                        <td data-label="Atık Depolama Alanlarının Yeterliliği ve Mesafesi"><h3>{{ project.getCapacityWasteLandTr }}</h3></td>
+                                    </tr>
+                                </div>
+                            </div>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-2">
+                    <td><h3><a href="{{ project.get_Featureupdate_urlTr}}" class="btn btn-primary" role="button">Özellikleri Güncelle</a></h3></td>
+                </div>
+            </div>
+
+
+
+            <br><br>
+            <h1 align="center">Reaksiyonlar</h1>
+            <div class="row">
+                <div class="col-md-10">
+                    <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Reaksiyon Numarası</th>
+                            <th scope="col">Reaksiyon </th>
+                            <th scope="col">Reaksiyon Tarihi</th>
+                            <th scope="col">Reaksiyon Saati</th>
+                            <th scope="col">Reaksiyonun Etkinliği</th>
+                            <th scope="col">Sorumlu Kurum</th>
+                            <th scope="col">Güncelle</th>
+                            <th scope="col">Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for response in responses %}
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6 col-xs-1">
+                                    <tr>
+                                        <td data-label="Reaksiyon Numarası"><h3>{{response.id}}</h3></td>
+                                        <td data-label="Reaksiyon"><h3>{{response.reaction|linebreaks|truncatechars:20}}</h3></td>
+                                        <td data-label="Reaksiyon Tarihi"><h3>{{response.date }}</h3></td>
+                                        <td data-label="Reaksiyon Saati"><h3>{{ response.time }}</h3></td>
+                                        <td data-label="Reaksiyonun Etkinliği"><h3>{{ response.effect}}</h3></td>
+                                        <td data-label="Sorumlu Kurum"><h3>{{ response.responsible }}</h3></td>
+                                        <td data-label="Güncelle"><h3><a href="{%url 'projects:newResponseDprTr' project.id response.id%}" class="btn btn-primary" role="button">Güncelle</a></h3></td>
+                                        <td data-label="Sil"><h3><a href="{%url 'projects:deleteResponseDprTr' project.id response.id%}" class="btn btn-danger" role="button">Sil</a></h3></td>
+                                    </tr>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                </div>
+                <div class="col-md-2">
+                    <td><h3><a href="{%url 'projects:addResponseDprTr' project.id%}" class="btn btn-primary" role="button">Yeni Reaksiyon Ekle</a></h3></td>
+                </div>
+            </div>
+
+</div>
+{% endblock %}
+
+
+
+
+

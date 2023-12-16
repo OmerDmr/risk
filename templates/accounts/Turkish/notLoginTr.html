@@ -1,0 +1,16 @@
+{% extends 'baseTr.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+
+    <form method="POST">
+        <div class="alert alert-danger" role="alert">
+            <div class="col-md-offset-4 col-sm-offset-2 col-xs-offset-1">
+                {% csrf_token %}
+                <h1>İstek Reddedildi !!</h1>
+                <h2>Çevrimdışısınız, lütfen işlem yapmadan önce giriş yapınız !!</h2>
+                <td><h3><a href="{% url 'firstPageTr' %} " class="btn btn-primary" role="button">Giriş Sayfasına Dön</a></h3></td>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}

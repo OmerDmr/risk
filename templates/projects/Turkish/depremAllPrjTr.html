@@ -1,0 +1,67 @@
+
+{% extends 'baseTr.html' %}
+{% block title %}
+    {{ block.super }}-Tüm Depremler
+{% endblock %}
+
+{% block body %}
+    <div style="max-width: 100%; height: auto" class="alert alert-secondary" role="alert">
+        <h1 align="center"> Tüm Depremler</h1>
+          <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Afet Numarası</th>
+                            <th scope="col">Afet İsmi</th>
+                            <th scope="col">İncele</th>
+                            {% if user.groups.all.0.name == 'Disaster Manager' or user.groups.all.0.name == 'Disaster Specialist'  %}
+                                <th scope="col"h>Güncelle</th>
+                                <th scope="col">Sonlandır</th>
+                            {% endif %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for project in prjDpr %}
+                        <div class="row">
+                            <div class="col-md-12 col-sm-6 col-xs-1">
+                                <tr>
+                                    <td data-label="Afet Numarası"><h3><a >{{ project.id }}</a></h3></td>
+                                    <td data-label="Afet İsmi"><h3><a >{{ project.projectName }}</a></h3></td>
+                                    <td data-label="İncele"><h3><a href="{%url 'projects:depremViewTr' project.id%}" class="btn btn-primary" role="button">İncele</a></h3></td>
+                                    {% if user.groups.all.0.name == 'Disaster Manager' or user.groups.all.0.name == 'Disaster Specialist'  %}
+                                        <td data-label="Güncelle"><h3><a href="{%url 'projects:depremUpdateTr' project.id%}" class="btn btn-primary" role="button">Güncelle</a></h3></td>
+                                        {% if project.terminate == False %}
+                                            <td data-label="Sonlandır"><h3><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal1">Sonlandır</button></h3></td>
+                                            <div class="modal fade" id="myModal1" role="dialog">
+                                                <div class="modal-dialog">
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            <h4 class="modal-title">Warning</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>Bu işlemi gerçekleştirirseniz, proje sonlandırılacaktır. Onay verdiğiniz takdirde ilerde proje üzerinde herhangi bir güncelleme gerçekleştiremeyeceksiniz.</p>                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <a href="{%url 'projects:depremTermPrjTr' project.id%}" class="btn btn-primary" role="button">Değişiklikleri Kaydet</a>
+                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% endif %}
+                                </tr>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+          </form>
+
+    </div>
+
+{% endblock %}
+

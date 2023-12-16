@@ -1,0 +1,18 @@
+
+
+<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 ">
+									<a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">Afet Listesi</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="{% url 'projects:depremAllProjectTr' %}">Depremler</a>
+										<a class="dropdown-item" href="{% url 'projects:selAllProjectTr' %}">Seller</a>
+										<a class="dropdown-item" href="{% url 'projects:allProjectTr' %}">Tüm Afetler</a>
+									</div>
+								</li>
+
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Yeni Afet</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="{% url 'projects:depremCreateTr' %}">Deprem Ekle</a>
+										<a class="dropdown-item" href="{% url 'projects:selCreateTr' %}">Sel Ekle</a>
+									</div>
+								</li>

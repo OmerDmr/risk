@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+<div class="alert alert-secondary" role="alert">
+        <h1 align="center">Earthquake Information</h1>
+              {% csrf_token %}
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Disaster Id </th>
+                            <th scope="col">Disaster Name</th>
+                            <th scope="col">Summary</th>
+                            <th scope="col">Disaster Date</th>
+                            <th scope="col">Created by</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-6 col-xs-1">
+                                <tr>
+                                    <td data-label="Disaster ID"><h3>{{ project.id }}</h3></td>
+                                    <td data-label="Disaster Name"><h3>{{ project.projectName }}</h3></td>
+                                    <td data-label="Summary"><h3>{{ project.summary}}</h3></td>
+                                    <td data-label="Disaster Date"><h3>{{ project.crtDate}}</h3></td>
+                                    <td data-label="Created By"><h3>{{ project.user.groups.all.0.name }}</h3></td>
+                                </tr>
+                            </div>
+                        </div>
+                    </tbody>
+                </table>
+</div>
+{% endblock %}
+
+
+
+
+

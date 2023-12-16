@@ -1,0 +1,48 @@
+{% extends 'baseTr.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    {{ block.super }}-Yeni Deprem
+{% endblock %}
+
+
+<style>
+
+a {
+    color:#fff;
+    background-color:#feb22a;
+    width:12px;
+    height:12px;
+    display:inline-block;
+    border-radius:100%;
+    font-size:10px;
+    text-align:center;
+    text-decoration:none;
+    -webkit-box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+    box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+}
+
+</style>
+{% block body %}
+ <div class="alert alert-secondary" role="alert">
+        <h1>Yeni Deprem Ekle</h1>
+        <form method="POST">
+                <div>
+                    {% csrf_token %}
+                        {% for field in form %}
+                            {% if field.help_text %}
+                                    <h3 data-toggle="tooltip" data-placement="right" title="{{ field.help_text|safe }}"></h3>
+                                    {{ field|as_crispy_field }}
+                            {% else %}
+                                    <h3 data-toggle="tooltip" data-placement="right" title="{{ field.help_text|safe }}"></h3>
+                                    {{ field|as_crispy_field }}
+                            {% endif %}
+                        {% endfor %}
+                    <input class="btn btn-primary" type="submit" value="Yeni Deprem Ekle">
+                </div>
+-        </form>
+
+    </div>
+
+{% endblock %}

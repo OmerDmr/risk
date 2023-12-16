@@ -1,0 +1,96 @@
+{% if user.is_authenticated %}
+<div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+<header  class="site-navbar fixed" role="banner">
+
+      <div class="container">
+        <div class="row align-items-center">
+
+          <a class="navbar-brand sticky-top ">
+            <img  style=" width: 25%; height: auto;" src="/static/images/ytu.png" class=" img-fluid d-inline-block align-top" alt="">
+        </a>
+
+          <div class="col-12 col-md-10 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+
+              <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li class="active"><a href="{% url 'accounts:home' %}"><span>Home</span></a></li>
+                <li class="has-children">
+                  <a ><span>List Disasters</span></a>
+                  <ul class="dropdown arrow-top">
+                    <li><a href="{% url 'projects:depremAllProject' %}">Earthquakes</a></li>
+                    <li><a href="{% url 'projects:selAllProject' %}">Floods</a></li>
+                      <li><a href="{% url 'projects:allProject' %}">All Disasters</a></li>
+                  </ul>
+                </li>
+                <li class="has-children">
+                  <a><span>New Disaster</span></a>
+                  <ul class="dropdown arrow-top">
+                    <li><a href="{% url 'projects:depremCreate' %}">Add Earthquake</a></li>
+                    <li><a href="{% url 'projects:selCreate' %}">Add Flood</a></li>
+                  </ul>
+                </li>
+                <li><a href="{% url 'projects:about' %}"><span>About Us</span></a></li>
+                <li><a href="{% url 'accounts:viewProfile' %}"><span>Profile</span></a></li>
+                <li><a href="{% url 'accounts:logout' %}"><span>Logout</span></a></li>
+              </ul>
+            </nav>
+          </div>
+
+
+        </div>
+      </div>
+
+    </header>
+{% else %}
+
+<div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+<header  class="site-navbar fixed" role="banner">
+
+      <div class="container">
+        <div class="row align-items-center">
+
+          <a class="navbar-brand sticky-top ">
+            <img  style=" width: 30%; height: auto;" src="/static/images/ytu.png" class=" img-fluid d-inline-block align-top" alt="">
+        </a>
+
+          <div class="col-12 col-md-10 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+
+              <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li class="has-children">
+                  <a ><span>List Disasters</span></a>
+                  <ul class="dropdown arrow-top">
+                    <li><a href="#">Earthquakes</a></li>
+                    <li><a href="#">Floods</a></li>
+                      <li><a href="#">All Disasters</a></li>
+                  </ul>
+                </li>
+                <li><a href="{% url 'projects:about' %}"><span>About Us</span></a></li>
+                <li><a href="{% url 'accounts:firstPage' %}"><span>Login or Sign Up</span></a></li>
+              </ul>
+            </nav>
+          </div>
+
+
+        </div>
+      </div>
+
+    </header>
+
+{% endif %}

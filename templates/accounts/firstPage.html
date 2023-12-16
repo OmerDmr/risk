@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+
+<h1><p class="text-center" style="font-weight: bolder">Disaster Management</p></h1>
+    <p  class="text-center" style="color: white"><a href="http://www.yildiz.edu.tr/en" target="_blank" rel="noopener"> by YTU Civil Engineering 2023</a></p>
+<div class="alert alert-secondary" role="alert">
+    <div class="modal-body row">
+      <div class="col-md-6">
+        <h1>Register Now</h1>
+          <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              {{ form2|crispy }}
+              <input class="btn btn-primary" type="submit" value="Register">
+          </form>
+      </div>
+      <div class="col-md-6">
+         <h1>Sign In</h1>
+          <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              {{ form1|crispy }}
+              <input class="btn btn-primary" type="submit" value="Sıgn In">
+          </form>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
+
+<p class="text-muted">
+  Muted text with a <a href="#" class="text-reset">reset link</a>.
+</p>

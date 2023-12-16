@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+<div class="alert alert-secondary" role="alert">
+    <div class="modal-body row">
+      <div class="col-md-6">
+         <h1 align="center"> All Earthquakes</h1>
+          <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Disaster ID</th>
+                            <th scope="col">Disaster Name</th>
+                            <th scope="col">Created By</th>
+                            <th>View</th>
+                            {% if user.groups.all.0.name == 'Disaster Manager' or user.groups.all.0.name == 'Disaster Specialist'  %}
+                                <th scope="col">Update</th>
+                                <th scope="col">Terminate</th>
+                            {% endif %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for project in prjDpr %}
+                        <div class="row">
+                            <div class="col-md-12 col-sm-6 col-xs-1">
+                                <tr>
+                                    <td data-label="Disaster ID"><h3><a href="{{ project.get_absolute_url }}">{{ project.id }}</a></h3></td>
+                                    <td data-label="Disaster Name"><h3><a href="{{ project.get_absolute_url }}">{{ project.projectName }}</a></h3></td>
+                                    <td data-label="Created By"><h3><a>{{ project.user.groups.all.0.name }}</a></h3></td>
+                                    <td data-label="View"><h3><a href="{%url 'projects:depremView' project.id%}" class="btn btn-primary" role="button">View</a></h3></td>
+                                    {% if user.groups.all.0.name == 'Disaster Manager' or user.groups.all.0.name == 'Disaster Specialist'  %}
+                                        <td data-label="Update"><h3><a href="{%url 'projects:depremUpdate' project.id%}" class="btn btn-primary" role="button">Update</a></h3></td>
+                                        {% if project.terminate == False %}
+                                            <td data-label="Terminate"><h3><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal1">Terminate</button></h3></td>
+                                            <div class="modal fade" id="myModal1" role="dialog">
+                                                <div class="modal-dialog">
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            <h4 class="modal-title">Warning</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>If you do this, this project will be finished. You will not be able to make any changes on this project in the future.</p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <a href="{%url 'projects:depremTermPrj' project.id%}" class="btn btn-primary" role="button">Save Changes</a>
+                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% endif %}
+                                </tr>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+          </form>
+      </div>
+        <div class="col-md-6">
+         <h1 align="center"> All Floods</h1>
+          <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Disaster ID</th>
+                            <th scope="col">Disaster Name</th>
+                            <th scope="col">Created By</th>
+                            <th scope="col">View</th>
+                            {% if user.groups.all.0.name == 'Disaster Manager' or user.groups.all.0.name == 'Disaster Specialist'  %}
+                                <th scope="col">Update</th>
+                                <th scope="col">Terminate</th>
+                            {% endif %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for project in prjSel %}
+                        <div class="row">
+                            <div class="col-md-12 col-sm-6 col-xs-1">
+                                <tr>
+                                    <td data-label="Disaster ID"><h3><a href="{{ project.get_absolute_url }}">{{ project.id }}</a></h3></td>
+                                    <td data-label="Disaster Name"><h3><a href="{{ project.get_absolute_url }}">{{ project.projectName }}</a></h3></td>
+                                    <td data-label="Created By"><h3><a>{{ project.user.groups.all.0.name }}</a></h3></td>
+                                    <td data-label="View"><h3><a href="{%url 'projects:selView' project.id%}" class="btn btn-primary" role="button">View</a></h3></td>
+                                    {% if user.groups.all.0.name == 'Disaster Manager' or user.groups.all.0.name == 'Disaster Specialist'  %}
+                                        <td data-label="Update"><h3><a href="{%url 'projects:selUpdate' project.id%}" class="btn btn-primary" role="button">Update</a></h3></td>
+                                        {% if project.terminate == False %}
+                                            <td data-label="Terminate"><h3><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2">Terminate</button></h3></td>
+                                            <div class="modal fade" id="myModal2" role="dialog">
+                                                <div class="modal-dialog">
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            <h4 class="modal-title">Warning</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>If you do this, this project will be finished. You will not be able to make any changes on this project in the future.</p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <a href="{%url 'projects:selTermPrj' project.id%}" class="btn btn-primary" role="button">Save Changes</a>
+                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% endif %}
+                                </tr>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+          </form>
+      </div>
+
+
+    </div>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Warning</h4>
+            </div>
+            <div class="modal-body">
+                <p>If you do this, this project will be finished. You will not be able to make any changes on this project in the future.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-primary" role="button">Save Changes</a>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'baseTr.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+<div class="alert alert-secondary" role="alert">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-4 col-sm-offset-2 col-xs-offset-1">
+                <h1>{{title}}</h1>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <input class="btn btn-primary" type="submit" value="{{ title }}">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

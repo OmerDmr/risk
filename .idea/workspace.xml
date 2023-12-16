@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6cb64b18-b751-4315-be38-92ceec73184a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/accounts/Turkish/firstPageTr.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/Turkish/firstPageTr.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/accounts/Turkish/viewUserTr.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/Turkish/viewUserTr.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/baseTr.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/baseTr.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/Turkish/homeTr.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/Turkish/homeTr.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/projects/Turkish/aboutUsTr.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/projects/Turkish/aboutUsTr.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/projects/Turkish/allPrjTr.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/projects/Turkish/allPrjTr.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/projects/Turkish/depremCreateTr.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/projects/Turkish/depremCreateTr.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/projects/Turkish/depremProjectUpdateTr.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/projects/Turkish/depremProjectUpdateTr.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/projects/Turkish/depremViewTr.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/projects/Turkish/depremViewTr.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1X8pcWJDH0luJFWkplMbFrThF4e" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/projects" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/projects" />
+      <recent name="$PROJECT_DIR$/accounts" />
+      <recent name="$PROJECT_DIR$/templates/accounts" />
+      <recent name="$PROJECT_DIR$/static" />
+      <recent name="$PROJECT_DIR$/templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/home" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/risk" />
+      <recent name="$PROJECT_DIR$/templates/projects" />
+      <recent name="$PROJECT_DIR$/templates/home" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="forms" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="riskProje" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/projects" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/forms.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.forms" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6cb64b18-b751-4315-be38-92ceec73184a" name="Default Changelist" comment="" />
+      <created>1580437656021</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580437656021</updated>
+      <workItem from="1580437659884" duration="12211000" />
+      <workItem from="1580450592014" duration="21000" />
+      <workItem from="1580486957543" duration="11281000" />
+      <workItem from="1580501251281" duration="24655000" />
+      <workItem from="1580575139387" duration="76000" />
+      <workItem from="1580586096333" duration="14121000" />
+      <workItem from="1580625001502" duration="8724000" />
+      <workItem from="1580633999286" duration="7903000" />
+      <workItem from="1580707394067" duration="1223000" />
+      <workItem from="1581019870281" duration="30011000" />
+      <workItem from="1581123262318" duration="2391000" />
+      <workItem from="1581160665572" duration="49077000" />
+      <workItem from="1581454717316" duration="70508000" />
+      <workItem from="1581870197228" duration="20941000" />
+      <workItem from="1582030986800" duration="1315000" />
+      <workItem from="1582059669281" duration="4088000" />
+      <workItem from="1582132637643" duration="27260000" />
+      <workItem from="1582398750341" duration="59060000" />
+      <workItem from="1582660495074" duration="182658000" />
+      <workItem from="1583430121150" duration="5850000" />
+      <workItem from="1586235832125" duration="12180000" />
+      <workItem from="1586355962574" duration="14176000" />
+      <workItem from="1586389364338" duration="32763000" />
+      <workItem from="1586541013425" duration="3377000" />
+      <workItem from="1586847106190" duration="6000" />
+      <workItem from="1587912978378" duration="134000" />
+      <workItem from="1589515377717" duration="12383000" />
+      <workItem from="1598094821090" duration="12945000" />
+      <workItem from="1598109340313" duration="22000" />
+      <workItem from="1598110026432" duration="9154000" />
+      <workItem from="1598257474998" duration="9000" />
+      <workItem from="1598257498207" duration="4000" />
+      <workItem from="1598257519768" duration="40000" />
+      <workItem from="1598257574040" duration="16000" />
+      <workItem from="1598257826329" duration="415000" />
+      <workItem from="1598258255367" duration="44000" />
+      <workItem from="1598258392548" duration="1835000" />
+      <workItem from="1598280085215" duration="9000" />
+      <workItem from="1608410155598" duration="66000" />
+      <workItem from="1608410229394" duration="21000" />
+      <workItem from="1688683687698" duration="26000" />
+      <workItem from="1688683750703" duration="15000" />
+      <workItem from="1688683815322" duration="13000" />
+      <workItem from="1688683861227" duration="135000" />
+      <workItem from="1688773246482" duration="6378000" />
+      <workItem from="1689111881417" duration="22564000" />
+      <workItem from="1690367404739" duration="599000" />
+      <workItem from="1691612778155" duration="19672000" />
+      <workItem from="1691783220568" duration="26493000" />
+      <workItem from="1692139949814" duration="14423000" />
+      <workItem from="1701290947350" duration="31428000" />
+      <workItem from="1701502546420" duration="29534000" />
+      <workItem from="1701630311154" duration="77077000" />
+      <workItem from="1701929668415" duration="45536000" />
+      <workItem from="1702283959737" duration="6510000" />
+      <workItem from="1702293900058" duration="5746000" />
+      <workItem from="1702311255046" duration="834000" />
+      <workItem from="1702340044332" duration="1224000" />
+      <workItem from="1702481783588" duration="19894000" />
+      <workItem from="1702518905762" duration="3129000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/riskProje$forms.coverage" NAME="forms Coverage Results" MODIFIED="1581458621520" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects" />
+  </component>
+</project>
